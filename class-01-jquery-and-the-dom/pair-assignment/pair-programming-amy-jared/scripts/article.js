@@ -13,26 +13,29 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
 
   $newArticle.data('category', this.category);
-  console.log("foo");
+  $newArticle.find('h1').html(this.title);
+  $newArticle.find('.byline a').html(this.author);
+  $newArticle.find('.byline a').attr('href', this.authorUrl);
+  $newArticle.find('.article-body').html(this.body);
 
-  // TODO: Use jQuery to fill in the template with properties
-  // from this particular Article instance. We need to fill in:
-  // the author name and url, the article title and body, and the
-  // publication date.
 
   // Include the publication date as a 'title' attribute to show on hover:
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn)
+  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
 
   // Display the date as a relative number of "days ago":
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago')
+  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 
   $newArticle.append('<hr>');
 
-  //remove class 'template' to avoid an inifnite loop
+  //remove class 'template' to avoid an infinite loop
   $newArticle.removeClass('template');
 
   return $newArticle;
 }
+
+$(document).ready(function(){
+  Article.prototype.toHtml();
+})
 
 rawData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
