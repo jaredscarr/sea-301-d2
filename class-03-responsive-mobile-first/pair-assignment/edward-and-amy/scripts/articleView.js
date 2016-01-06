@@ -62,10 +62,18 @@ articleView.setTeasers = function() {
   });
 };
 
+articleView.menuSlide = function () {
+  $('.menuActivate').on('click', function(e) {
+    e.preventDefault();
+    $('.main-nav ul').toggle(350);
+  });
+};
+
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
+  articleView.menuSlide();
 })
