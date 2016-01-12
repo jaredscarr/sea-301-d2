@@ -59,7 +59,7 @@
   // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
-      var words = article.body.split(' '); //not sure if this works
+      var words = article.body.split(' ');
       return words.length;// Get the total number of words in this article
     })
     .reduce(function(a, b) {
@@ -69,7 +69,16 @@
 
   // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
-    return // Don't forget to read the docs on map and reduce!
+    var listOfUniqueAuthors = [ ]; // hint 1
+    console.log(Article.all);
+    return Article.all.map(function(article) {
+      var author = article.author;
+      return author;
+    })
+    .filter(function(author) {
+//      return author is not in list of unique authors, add it to the list and tell .filter "I like this element!" // hint 2
+//      else dont add it to the list of unique authors, and tell .filter "Nope!"
+    })
   };
 
   Article.numWordsByAuthor = function() {
