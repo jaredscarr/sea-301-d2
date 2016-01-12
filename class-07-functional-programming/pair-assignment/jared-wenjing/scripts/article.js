@@ -42,7 +42,7 @@
   // and process it, then hand off control to the View.
   // TODO: Refactor this function, so it accepts an argument of a callback function (likely a view function)
   // to execute once the loading of articles is done.
-  Article.fetchAll = function(newMethod) {
+  Article.fetchAll = function() { //<-- pass a parameter like newMethod
     if (localStorage.rawData) {
       Article.loadAll(JSON.parse(localStorage.rawData));
       articleView.initIndexPage();
@@ -51,7 +51,7 @@
         Article.loadAll(rawData);
         localStorage.rawData = JSON.stringify(rawData); // Cache the json, so we don't need to request it next time.
         articleView.initIndexPage();
-        newMethod();
+        // newMethod();
       });
     }
   };
@@ -59,10 +59,11 @@
   // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
-      return // Get the total number of words in this article
+      var words = article.body.split(' '); //not sure if this works
+      return words.length;// Get the total number of words in this article
     })
     .reduce(function(a, b) {
-      return // Sum up all the values in the collection
+      return (a + b);// Sum up all the values in the collection
     })
   };
 
