@@ -42,7 +42,7 @@
   // and process it, then hand off control to the View.
   // TODO: Refactor this function, so it accepts an argument of a callback function (likely a view function)
   // to execute once the loading of articles is done.
-  Article.fetchAll = function() {
+  Article.fetchAll = function(newMethod) {
     if (localStorage.rawData) {
       Article.loadAll(JSON.parse(localStorage.rawData));
       articleView.initIndexPage();
@@ -51,6 +51,7 @@
         Article.loadAll(rawData);
         localStorage.rawData = JSON.stringify(rawData); // Cache the json, so we don't need to request it next time.
         articleView.initIndexPage();
+        newMethod();
       });
     }
   };
@@ -79,4 +80,5 @@
       }
     })
 };
+  module.Article = Article;
 })(window);
