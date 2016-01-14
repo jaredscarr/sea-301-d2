@@ -69,12 +69,13 @@
     );
   };
 
-  // DONE: Update an article instance, overwriting it's properties into the corresponding record in the database:
-  Article.prototype.updateRecord = function(callback) {
+  // TODO: Update an article instance, overwriting it's properties into the corresponding record in the database:
+  Article.prototype.updateRecord = function(newa, callback) {
     webDB.execute(
       [
         {
-          'UPDDATE articles SET ? = ? WHERE ? = ?;'
+          'sql': 'UPDDATE articles SET ? = ? WHERE ? = ?;',
+          // 'data': []
         }
       ],
       callback
