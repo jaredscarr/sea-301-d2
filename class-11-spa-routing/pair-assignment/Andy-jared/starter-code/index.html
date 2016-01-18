@@ -35,14 +35,17 @@
       <nav class="main-nav">
         <div class="icon-menu"></div>
         <ul>
-          <li class="tab" data-content="articles"><a href="/index" class="icon-home"> Home</a></li>
-          <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
-          <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
-          <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
+          <li class="tab all" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
+          <li class="tab index" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
+          <li class="index"><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
+          <li class="index"><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
+          <li class="index"><a href="/boss">Admin</a></li>
+           <li class="tab admin"><a href="stats.html">Stats</a></li>
+          <li class="tab admin"><a href="new.html">New Article</a></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="index">
       <section id="articles" class="tab-content">
         <div>
           <ul id="filters">
@@ -73,6 +76,17 @@
         </section>
       </section>
     </main>
+    <main class="clearfix admin">
+      <h1>Blog Stats</h1>
+      <section id="blog-stats">
+        <dt>Total articles:</dt> <dd class="articles"></dd>
+        <dt>Total words:</dt> <dd class="words"></dd>
+        <h2>Author Stats</h2>
+        <p><em>Details on who is writing, and how much writing they are doing...</em></p>
+        <ul class="author-stats">
+        </ul>
+      </section>
+    </main>
     <footer>
       &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
@@ -90,6 +104,7 @@
     <script src="/scripts/articleView.js"></script>
     <script src="scripts/articleController.js"></script>
     <script src="scripts/aboutController.js"></script>
+    <script src="scripts/adminController.js"></script>
     <script src="scripts/routes.js"></script>
 
     <!-- <script>

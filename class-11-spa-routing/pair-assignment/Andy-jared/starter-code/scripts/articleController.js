@@ -8,8 +8,9 @@
   Article.fetchAll(articleView.initIndexPage);
   // Also be sure to hide all the main section elements, and reveal the #articles section:
   articlesController.index = function() {
+    $('.admin').hide();
+    $('.index').fadeIn();
     $('.tab-content').hide();
-    console.log('running function');
     $('#articles').fadeIn();
   };
 

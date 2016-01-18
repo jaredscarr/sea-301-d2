@@ -27,6 +27,10 @@
   display: block;
 }
 
+/*.main-nav ul li:not(.admin) {
+  display: block;
+}*/
+
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
